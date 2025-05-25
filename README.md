@@ -106,56 +106,68 @@ This plugin is essential for extracting cookies from YouTube pages.
 
 ### Feature Explanation
 
-#### Set Download Quality
 
-This part sets max resolution:
+### Customizable Features
 
-```python
--f "bestvideo[height<=1080]+bestaudio/best[height<=1080]"
-```
+* **Set Download Quality**:
 
-You can modify the `height<=1080` part to values like `720` or `2160` (2K) based on your preferences.
+  The download quality is controlled via the format string:
+  `"bestvideo[height<=1080]+bestaudio/best[height<=1080]"`.
+  The `1080` in `bestvideo[height<=1080]` indicates that the script will download 1080p video if available; otherwise, it will download the next best resolution.
+  You can change it to `720`, `2160`, etc., to download up to 720p or 2K quality.
+  The `bestaudio/best[height<=1080]` part works similarly: change `1080` to match your desired video resolution for audio pairing (generally, no need to modify this).
 
-#### Cookie Expiry Timer
+* **Cookie Expiration Timer**:
 
-YouTube login cookies usually expire in **about 20 minutes**. If you're downloading age-restricted videos, you'll need to refresh cookies periodically.
+  As is widely known, browser cookies—especially those storing login credentials—tend to expire quickly. Based on practical testing, YouTube login cookies typically expire in about **20 minutes**.
+  This means if you want to continuously download **age-restricted videos**, you'll need to regularly refresh your cookies.
 
-This script has a **built-in countdown timer** with a warning 3 minutes before cookies expire. You can customize the duration in:
+  For videos **without age restrictions**, cookie refresh is not required.
 
-```python
-monitor_cookie_file(cookie_file, reset_event, warn_event, interval=18*60)
-```
-
-Here, `18*60` means 18 minutes. Modify it to suit your needs.
-
-When you update and save the `cookies.txt` file, the countdown resets automatically.
-
----
-
-## Step-by-Step Video Download Instructions
-
-1. Clear Chrome’s **browsing data**, especially cookies.
-2. Open YouTube — you should now be signed out.
-3. **Log back in** to your YouTube account.
-4. Click the Get cookies.txt LOCALLY plugin icon → click **Export All Cookies**
-5. A `.txt` file will be downloaded. **Copy all its contents** and paste them into your `cookies.txt` file in the Python project folder.
-6. Save the file.
-7. Run the Python program. In the terminal:
-
-   * Paste your video or playlist link
-   * Answer whether it's a playlist (`y/n`)
-   * If it's a playlist, input the **starting video number**
-8. Videos will be downloaded to a `downloads` folder in your project directory.
-
-> ✅ **Tips for Playlist Downloads**:
->
-> * Downloaded files are named with the corresponding video index in the playlist.
-> * To avoid restarting from the beginning if interrupted, you can specify the **starting index**.
-> * Keep updating cookies every \~20 minutes if downloading age-restricted videos.
+  This script includes a **cookie expiration timer** to remind users to update cookies in time.
+  Located in the function:
+  `monitor_cookie_file(cookie_file, reset_event, warn_event, interval=18*60):`
+  The `18*60` means the timer runs for 18 minutes per cycle. You can modify this value to customize the countdown interval.
+  A warning will be printed at **3 minutes before expiry** and **at expiration**.
+  When the script detects changes saved to the `cookies.txt` file (e.g., using `Ctrl+S`), the timer will reset automatically.
 
 ---
 
-Last updated: **2024.12.12**
+### How to Download Videos
+
+1. **Clear your Chrome browser history**, especially **Cookies**.
+
+2. After clearing, go to [YouTube](https://www.youtube.com/) — you should now be logged out.
+
+3. **Log back into your YouTube account**.
+
+4. Once logged in, your cookies are freshly generated—and the expiration countdown starts immediately, so continue the following steps quickly.
+
+5. On the YouTube homepage, click the **Get cookies.txt LOCALLY** browser extension icon in the toolbar, then click **Export All Cookies**. A `.txt` file will be downloaded.
+
+6. Open the downloaded `.txt` file, **copy all its content without modifications**, and paste it into the `cookies.txt` file located in the root directory of the Python project. Save the file.
+
+7. Run the program from your IDE and monitor the output in the Terminal.
+
+8. The script will prompt you to input a video URL (either a single video or a playlist).
+
+9. Paste the desired YouTube link and press Enter.
+
+10. The program will ask if it's a **single video**:
+
+    * If yes: it will download the video immediately.
+    * If no: it switches to **playlist mode**, and will ask which video index to start downloading from.
+
+      * In playlist mode, downloaded videos are **prefixed with an index number** corresponding to their order in the playlist.
+      * Since the script **checks videos from the beginning** on every run, this may waste valuable cookie time. Specifying the **start index** helps skip already downloaded videos and save time.
+      * To continue downloading restricted content, **manually refresh your cookies at least once every 20 minutes**: repeat the “Clear → Login → Export → Copy → Paste → Save” process.
+      * Unrestricted videos can still be downloaded without updating cookies.
+
+11. Wait for the downloads to complete. All downloaded files will be saved in the `downloads` folder in the project root.
+
+---
+
+Last updated: **2025.5.25**
 
 **NON-COMMERCIAL USE ONLY**
 
