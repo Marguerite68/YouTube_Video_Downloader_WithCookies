@@ -176,7 +176,5 @@ Last updated: **2025.5.25**
 
 For questions, email: [sekaibest@outlook.com](mailto:sekaibest@outlook.com)
 
-Follow me on X: [https://linktr.ee/marguerite68](https://linktr.ee/marguerite68)
-
 对于中文版操作指引，请详见：[利用Python批量下载Youtube中含有年龄限制视频的播放列表全指北](https://recondite-citron-f48.notion.site/Python-Youtube-15a9545f48c7806cb025f9a97f825b1d)
 > ⚠️ **Note**: 中文版指引可能与此Readme内容不完全相同。遇到内容不同时，请以此英文版Readme为准
