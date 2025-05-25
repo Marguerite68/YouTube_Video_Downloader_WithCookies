@@ -6,7 +6,7 @@ Have you grown tired of wasting time on search engines trying to find a truly fr
 
 ## **Preparation**
 
-* A reasonably capable computer running Windows 10 or later (MacOS and Linux tutorials are **not provided** for now)
+* A reasonably capable computer running Windows 10 or later
 * An IDE with Python 3.12 or later already configured (e.g., PyCharm or VS Code — as long as it can run `.py` files)
 * A YouTube account
 * Google Chrome browser
@@ -86,24 +86,21 @@ Sample output:
 * Go to the Chrome Web Store
 * Search for and install **Get cookies.txt LOCALLY**
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/90f1dbbc-b28f-4b29-b9fb-119d56bec309/fc119a24-8be4-418d-b06f-469a6436ec56/image.png)
+Download this plugin in Chrome: [get-cookiestxt-locally](https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc?pli=1)
 
 This plugin is essential for extracting cookies from YouTube pages.
 
 > ⚠️ When downloading age-restricted content, YouTube relies on cookies to verify your identity. Without valid cookies, you **cannot** access restricted videos.
 > If you're under 18, unfortunately, there's no workaround.
 
+
 ---
 
-## Main Program Usage
+## **Main Program Usage**
 
-* Create a new Python project in your IDE
-* In the same directory as `main.py`, create a **blank file** named `cookies.txt`. This file will store cookies exported via the browser plugin.
-* Clear any existing code in `main.py` and paste the following script:
-
-```python
-# [code unchanged for brevity, refer to original content]
-```
+* Clone this project to your local IDE
+* Configure a Python interpreter (Python 3.12 or above) in your IDE
+* Open `main.py` — you can run the program directly from this file
 
 ---
 
@@ -162,6 +159,12 @@ Last updated: **2024.12.12**
 
 **NON-COMMERCIAL USE ONLY**
 
+<a href="https://github.com/Marguerite68/YouTube_Video_Downloader_WithCookies"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">YouTube_Video Downloader WithCookies</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> © 2024 by </font></font><a href="https://github.com/Marguerite68"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Marguerite</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已获得</font></font><a href="https://creativecommons.org/licenses/by-nc/4.0/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Creative Commons Attribution-NonCommercial 4.0 International许可</font></font></a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+
 
 For questions, email: [sekaibest@outlook.com](mailto:sekaibest@outlook.com)
+
 Follow me on X: [https://linktr.ee/marguerite68](https://linktr.ee/marguerite68)
+
+对于中文版操作指引，请详见：[利用Python批量下载Youtube中含有年龄限制视频的播放列表全指北](https://recondite-citron-f48.notion.site/Python-Youtube-15a9545f48c7806cb025f9a97f825b1d)
+> ⚠️ **Note**: 中文版指引可能与此Readme内容不完全相同。遇到内容不同时，请以此英文版Readme为准
