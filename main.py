@@ -5,7 +5,7 @@ import threading
 
 
 # 检测 Cookie 文件更新的线程
-def monitor_cookie_file(cookie_file, reset_event, warn_event, interval=200):#这里设置默认倒计时为18分钟
+def monitor_cookie_file(cookie_file, reset_event, warn_event, interval=18*60):#这里设置默认倒计时为18分钟
     """
     监控 Cookie 文件的修改时间，并重置倒计时。
 
@@ -66,7 +66,7 @@ def download_youtube_video_or_playlist(url, output_dir="downloads", start_video=
     command = [
         "yt-dlp",
         "--cookies", cookie_file,  # 使用默认 Cookie 文件进行授权
-        "-f", "bestvideo[height<=1080]+bestaudio/best[height<=1080]",  # 下载 1080p 或更低清晰度的视频和音频
+        "-f", "bestvideo[height<=720]+bestaudio/best[height<=1080]",  # 下载 1080p 或更低清晰度的视频和音频
         "-o", os.path.join(output_dir, "%(title)s.%(ext)s"),  # 设置输出文件名
     ]
 
